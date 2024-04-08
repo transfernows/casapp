@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class UserAuthController extends Controller {
 
+    /**
+     * 
+     * @param Request $request
+     * @return type
+     */
     public function register(Request $request) {
         $registerUserData = $request->validate([
             'name' => 'required|string',
@@ -22,6 +27,11 @@ class UserAuthController extends Controller {
         ]);
     }
 
+    /**
+     * 
+     * @param Request $request
+     * @return type
+     */
     public function login(Request $request) {
         $loginUserData = $request->validate([
             'email' => 'required|string|email',
@@ -39,6 +49,10 @@ class UserAuthController extends Controller {
         ]);
     }
 
+    /**
+     * 
+     * @return type
+     */
     public function logout() {
         auth()->user()->tokens()->delete();
 
